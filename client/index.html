@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="./css/style.css" rel="stylesheet" />
+		<script type="module" src="./js/index.js"></script>
+
+		<title>3D Cone App</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="3d-cone-app">
+				<section class="cone-setup">
+					<h3 class="cone-setup__header">Setup cone:</h3>
+					<div class="cone-setup-form__outer">
+						<form class="cone-setup-form" method="POST">
+							<div class="cone-setup-form__elements">
+								<div class="cone-setup-form__element">
+									<input
+										class="cone-setup-form__height-input cone-setup-form__input"
+										id="height"
+										name="height"
+									/>
+									<label class="cone-setup-form__height-label cone-setup-form__label" for="height">
+										Height
+									</label>
+								</div>
+								<div class="cone-setup-form__element">
+									<input
+										class="cone-setup-form__radius-input cone-setup-form__input"
+										id="radius"
+										name="radius"
+									/>
+									<label class="cone-setup-form__radius-label cone-setup-form__label" for="radius">
+										Radius
+									</label>
+								</div>
+								<div class="cone-setup-form__element">
+									<input
+										class="cone-setup-form__segments-count-input cone-setup-form__input"
+										id="segments-count"
+										name="segments-count"
+									/>
+									<label
+										class="cone-setup-form__segments-count-label cone-setup-form__label"
+										for="segments-count"
+									>
+										Segments count
+									</label>
+								</div>
+							</div>
+
+							<button class="cone-setup-form__submit-btn" type="submit">Draw</button>
+						</form>
+					</div>
+				</section>
+				<main class="view-3d"></main>
+			</div>
+		</div>
+	</body>
+</html>
