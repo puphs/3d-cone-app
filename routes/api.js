@@ -11,7 +11,8 @@ const RESULT_CODE = {
 
 const validateNumber = (name, moreThan, lessThan) => {
 	return check(name)
-		.exists()
+		.not()
+		.isEmpty()
 		.withMessage(`${name} should not be empty`)
 		.bail()
 		.isNumeric()
@@ -34,21 +35,23 @@ router.post(
 	'/api/cone-triangles',
 	validateNumber('height', 0, 10000),
 	validateNumber('radius', 0, 10000),
-	validateNumber('segmentsCount', 0, 10000),
+	validateNumber('segmentsCount', 2, 10000),
 
 	(req, res) => {
-		console.log('new req');
-		const errors = validationResult(req)
+		const errorMessages = validationResult(req)
 			.array()
 			.map((error) => error.msg);
 
-		if (errors.length) {
-			res.status(400).send(createAnswer(RESULT_CODE.ERROR, errors));
+		if (errorMessages.length) {
+			res.status(400).send(createAnswer(RESULT_CODE.ERROR, errorMessages, req.body));
 		} else {
 			const { height, radius, segmentsCount } = req.body;
-			res.send(
-				createAnswer(RESULT_CODE.OK, null, calculateConeTriangles(height, radius, segmentsCount))
+			const triangles = calculateConeTriangles(
+				parseFloat(height),
+				parseFloat(radius),
+				parseFloat(segmentsCount)
 			);
+			res.send(createAnswer(RESULT_CODE.OK, null, triangles));
 		}
 	}
 );
