@@ -18,10 +18,13 @@ export default class Cone3dView {
 
 		this.camera.position.set(0, 2, 5.5);
 
-		// setup light
-		const light = new THREE.PointLight(0xffffff, 1, 1000);
-		light.position.set(50, 50, 50);
-		this.scene.add(light);
+		// setup lighting
+		const light1 = new THREE.PointLight(0xffffff, 1, 1000);
+		light1.position.set(50, 50, 50);
+		const light2 = new THREE.PointLight(0xffffff, 1, 1000);
+		light2.position.set(-50, -50, -50);
+		this.scene.add(light1);
+		this.scene.add(light2);
 
 		// setup orbit controls (camera moving, rotating and zoom)
 		this.orbitControls = new OrbitControls(this.camera, this.renderer.domElement);
