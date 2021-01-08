@@ -21,8 +21,20 @@ body {
   margin: 0 auto;
 }
 
+.cone-3d-app {
+  padding: 32px 0;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .cone-setup {
-  padding: 32px 0 24px;
+  padding-bottom: 24px;
 }
 
 .cone-setup__header {
@@ -129,7 +141,10 @@ body {
 
 .view-3d {
   width: 100%;
-  height: 500px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-height: 600px;
   border-radius: 8px;
   overflow: hidden;
   background-color: var(--color-inactive);
