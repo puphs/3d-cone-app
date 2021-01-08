@@ -20,13 +20,15 @@
 				<section class="cone-setup">
 					<h3 class="cone-setup__header">Setup cone:</h3>
 					<div class="cone-setup-form__outer">
-						<form class="cone-setup-form" method="POST">
+						<form class="cone-setup-form" action="#">
 							<div class="cone-setup-form__elements">
 								<div class="cone-setup-form__element">
 									<input
 										class="cone-setup-form__height-input cone-setup-form__input"
 										id="height"
 										name="height"
+										type="number"
+										value="2"
 									/>
 									<label class="cone-setup-form__height-label cone-setup-form__label" for="height">
 										Height
@@ -37,6 +39,8 @@
 										class="cone-setup-form__radius-input cone-setup-form__input"
 										id="radius"
 										name="radius"
+										type="number"
+										value="1"
 									/>
 									<label class="cone-setup-form__radius-label cone-setup-form__label" for="radius">
 										Radius
@@ -46,7 +50,9 @@
 									<input
 										class="cone-setup-form__segments-count-input cone-setup-form__input"
 										id="segments-count"
-										name="segments-count"
+										name="segmentsCount"
+										type="number"
+										value="6"
 									/>
 									<label
 										class="cone-setup-form__segments-count-label cone-setup-form__label"

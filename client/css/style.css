@@ -5,6 +5,7 @@
 
 :root {
   --color-primary: #335eea;
+  --color-primary-dark: #2249ca;
   --color-inactive: #a3a3a3;
   --color-body: #ffffff;
 }
@@ -21,7 +22,7 @@ body {
 }
 
 .cone-setup {
-  padding: 32px 0;
+  padding: 32px 0 24px;
 }
 
 .cone-setup__header {
@@ -100,6 +101,8 @@ body {
 .cone-setup-form__submit-btn {
   background-color: var(--color-primary);
   min-width: 180px;
+  height: 50px;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -111,16 +114,23 @@ body {
           align-items: center;
   font-size: 18px;
   line-height: 25px;
+  letter-spacing: 1px;
   color: #ffffff;
-  font-weight: 600;
-  border-radius: 8px;
-  height: 50px;
   border: none;
+  border-radius: 8px;
   cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.cone-setup-form__submit-btn:hover {
+  background-color: var(--color-primary-dark);
 }
 
 .view-3d {
   width: 100%;
   height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
   background-color: var(--color-inactive);
 }
