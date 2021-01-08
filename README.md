@@ -7,9 +7,9 @@
 [Try it on Repl.it](https://3d-cone-app.puphs.repl.co/)
 <br/>
 #### How it works:
-* User enters height, radius and number of segments of cone to the form.
+* User enters height, radius and number of segments of cone into the form.
 * Server recieves form data, calculates array of cone triangles and sends it to user.
-* User recieves this array and draws cone.
+* User recieves this array and draws a cone.
 
 ## Setup
 ```
