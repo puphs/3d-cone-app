@@ -9,6 +9,7 @@
 		"express-validator": "^6.9.2"
 	},
 	"devDependencies": {
+		"@architect/sandbox": "^3.3.4",
 		"nodemon": "^2.0.7"
 	},
 	"scripts": {
