@@ -1,4 +1,4 @@
-export default class ErrorNofification {
+export default class Toast {
 	constructor(duration = 0, message = '') {
 		// creating toast element
 		this.toastElement = document.createElement('div');

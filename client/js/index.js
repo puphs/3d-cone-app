@@ -17,7 +17,7 @@ const parseForm = (form) => {
 	return formBody;
 };
 
-const drawConeAndHandleErrors = async (height, radius, segmentsCount) => {
+const drawConeAndHandleErrors = (height, radius, segmentsCount) => {
 	fetchConeTriangles(height, radius, segmentsCount)
 		.then((response) => {
 			if (response.resultCode == API_RESULT_CODE.OK) {
