@@ -2,6 +2,8 @@ import Toast from './Toast.js';
 import Cone3dView from './Cone3dView.js';
 
 const CONE_TRIANGLES_API_URL = document.location.origin + '/api/cone-triangles';
+const CONE_TRIANGLES_OPTIMIZED__API_URL =
+	document.location.origin + '/api/cone-triangles-optimized';
 
 const API_RESULT_CODE = {
 	OK: 0,
@@ -32,9 +34,10 @@ const drawConeAndHandleErrors = (height, radius, segmentsCount) => {
 		});
 };
 
-const fetchConeTriangles = (height, radius, segmentsCount) => {
+const fetchConeTriangles = (height, radius, segmentsCount, optimized = true) => {
 	const body = { height, radius, segmentsCount };
-	return fetch(CONE_TRIANGLES_API_URL, {
+	const apiUrl = optimized ? CONE_TRIANGLES_OPTIMIZED__API_URL : CONE_TRIANGLES_API_URL;
+	return fetch(apiUrl, {
 		headers: {
 			'Content-Type': 'application/json',
 		},

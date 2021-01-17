@@ -55,17 +55,28 @@ export default class Cone3dView {
 		this.animate();
 	}
 
-	drawCone(triangles) {
+	drawCone(triangles, isDataOptimized = true) {
 		this.coneGeometry.dispose();
 		this.coneGeometry = new THREE.Geometry();
-		triangles.forEach((triangle, index) => {
-			triangle.forEach((point) => {
-				const vertice = new THREE.Vector3(point.x, point.y, point.z);
-				this.coneGeometry.vertices.push(vertice);
+
+		if (isDataOptimized) {
+			this.coneGeometry.vertices = triangles.points.map(
+				(point) => new THREE.Vector3(point.x, point.y, point.z)
+			);
+			this.coneGeometry.faces = triangles.trianglesIndexes.map(
+				(indexes) => new THREE.Face3(indexes[0], indexes[1], indexes[2])
+			);
+		} else {
+			triangles.forEach((triangle, index) => {
+				triangle.forEach((point) => {
+					const vertice = new THREE.Vector3(point.x, point.y, point.z);
+					this.coneGeometry.vertices.push(vertice);
+				});
+				const face = new THREE.Face3(index * 3, index * 3 + 1, index * 3 + 2);
+				this.coneGeometry.faces.push(face);
 			});
-			const face = new THREE.Face3(index * 3, index * 3 + 1, index * 3 + 2);
-			this.coneGeometry.faces.push(face);
-		});
+		}
+
 		this.coneGeometry.computeFaceNormals();
 
 		this.coneMesh.geometry = this.coneGeometry;
